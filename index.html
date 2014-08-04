@@ -102,14 +102,25 @@ limitations under the License.
       this.radius = radius;
     }
     inheritPrototype(SphereEntity, Entity);    
-    
-    function CubeEntity(id, x, y, z, halfWidth, halfHeight, halfDepth, angle) {
+
+
+    function EllipsoidEntity(id, x, y, z, halfWidth, halfHeight, halfDepth, angle) {
       Entity.call(this, id, x, y, z, angle);
       this.halfWidth = halfWidth;
       this.halfHeight = halfHeight;
       this.halfDepth = halfDepth;
     }
-    inheritPrototype(CubeEntity, Entity);  
+    inheritPrototype(EllipsoidEntity, Entity);  
+    
+    
+    
+    function CuboidEntity(id, x, y, z, halfWidth, halfHeight, halfDepth, angle) {
+      Entity.call(this, id, x, y, z, angle);
+      this.halfWidth = halfWidth;
+      this.halfHeight = halfHeight;
+      this.halfDepth = halfDepth;
+    }
+    inheritPrototype(CuboidEntity, Entity);  
     
 
 	
@@ -124,10 +135,11 @@ limitations under the License.
       var r_y = Math.random() * 10;
       var r_z = Math.random() * 10 + 10;
 
+	  var radius = Math.random()+0.1;
       if (Math.random() > 0.5) {
-        return new SphereEntity(id, x, y, z, Math.random() + 0.1, {x:r_x,y:r_y,z:r_z});
+        return new EllipsoidEntity(id, x, y, z, radius, radius, radius, {x:r_x,y:r_y,z:r_z});
       } else {
-        return new CubeEntity(id, x, y, z, Math.random() + 0.1, Math.random() + 0.1, Math.random() + 0.1, {x:r_x,y:r_y,z:r_z});
+        return new CuboidEntity(id, x, y, z, Math.random() + 0.1, Math.random() + 0.1, Math.random() + 0.1, {x:r_x,y:r_y,z:r_z});
       }
     }
     
@@ -140,7 +152,7 @@ limitations under the License.
 	var needToDraw = true;
 	
     var world = {};
-    for (var i = 0; i < 120; i++) {
+    for (var i = 0; i < 100; i++) {
       world[i] = randomEntity(i);
     }
     
