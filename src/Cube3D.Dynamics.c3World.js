@@ -77,14 +77,43 @@
         b.m_xf.position.y += step.dt * b.m_linearVelocity.y + Math.pow(step.dt, 2) * gravity.y * 0.5;
         b.m_xf.position.z += step.dt * b.m_linearVelocity.z + Math.pow(step.dt, 2) * gravity.z * 0.5;
 
-      
+      	// 가속도로 속도변화적용
       	b.m_linearVelocity.x += step.dt * gravity.x;
       	b.m_linearVelocity.y += step.dt * gravity.y;
-      	b.m_linearVelocity.z += step.dt * gravity.z;        
+      	b.m_linearVelocity.z += step.dt * gravity.z;     
+      	
+      	// 각가속도 고려안함
+      	b.m_xf.R.x += step.dt * b.m_angularVelocity.x;
+      	b.m_xf.R.y += step.dt * b.m_angularVelocity.y;
+      	b.m_xf.R.z += step.dt * b.m_angularVelocity.z;
+ 
       }
       
    }
-   
+ /*
+ c3Body.c3Body = function () {
+	this.m_xf = new c3Transform();
+	this.m_linearVelocity = new c3Vec3();
+	this.m_angularVelocity = new c3Vec3();
+	this.m_force = new c3Vec3();
+};
+// 멤버 객체의 값을 초기화 하는 생성자
+c3Body.prototype.c3Body = function (bodyDef, world) {
+	this.m_world = world;
+	this.m_xf.position.setV(bodyDef.position);
+	this.m_xf.R.setV(bodyDef.angle);
+	this.m_prev = null;
+	this.m_next = null;
+	this.m_linearVelocity.setV(bodyDef.linearVelocity);
+	this.m_angularVelocity.setV(bodyDef.angularVelocity);
+	this.m_force.set(0.0, 0.0, 0,0);
+    this.m_invMass = 0.0;
+	this.m_mass = 1.0;
+	this.m_userData = bodyDef.userData;
+	this.m_fixtureList = null;
+	this.m_fixtureCount = 0;
+};
+*/  
 	function c3TimeStep() {
 		c3TimeStep.c3TimeStep.apply(this, arguments);
 		if (this.constructor === c3TimeStep) this.c3TimeStep.apply(this, arguments);

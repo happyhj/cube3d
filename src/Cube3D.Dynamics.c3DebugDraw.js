@@ -22,6 +22,7 @@
     c3DebugDraw.prototype.init = function() {
     	// 렌더러 인스턴스를 만들고 canvas객체를 화면에 붙인다.
 		this.renderer = new THREE.WebGLRenderer();
+		//this.renderer = new THREE.CanvasRenderer();
 		this.renderer.setSize( window.innerWidth, window.innerHeight );
 		this.renderer.setClearColor( 0x888888, 1 );
 
@@ -80,7 +81,7 @@ var material = new THREE.MeshPhongMaterial({
         color: color,
         // dark
         emissive: '#006063',
-        shininess: 50 
+        shininess: 100
       });
 		var sphere = new THREE.Mesh( geometry, material );
 		

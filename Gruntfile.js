@@ -9,6 +9,7 @@ module.exports = function(grunt) {
 						,"src/Cube3D.Collision.Shapes.js"
                 		, "src/Cube3D.Dynamics.js"
                 		, "src/Cube3D.Dynamics.c3World.js"
+                		, "src/Cube3D.Dynamics.c3DebugDraw.js"
                 		],
                 "dest": "build/Cube3D.js"
             }
