@@ -13,11 +13,13 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-
+/*
 importScripts('./src/Cube3D.Common.Math.c3Vec3.js');
 importScripts('./src/Cube3D.Collision.Shapes.js');
 importScripts('./src/Cube3D.Dynamics.js');
 importScripts('./src/Cube3D.Dynamics.c3World.js');
+*/
+importScripts('./build/Cube3D.js');
 
 /*
 var   b2Vec2 = Box2D.Common.Math.b2Vec2
